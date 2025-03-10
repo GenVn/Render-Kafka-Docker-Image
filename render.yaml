@@ -1,7 +1,7 @@
 services:
   - type: web
     name: kafka
-    image: docker.io/bitnami/kafka:3.9
+    dockerfilePath: Dockerfile
     port: 9092
     envVars:
       - key: KAFKA_CFG_NODE_ID
@@ -13,7 +13,7 @@ services:
       - key: KAFKA_CFG_LISTENERS
         value: "PLAINTEXT://:9092,CONTROLLER://:9093"
       - key: KAFKA_CFG_ADVERTISED_LISTENERS
-        value: "PLAINTEXT://render-kafka-docker-image.onrender.com:9092"
+        value: "PLAINTEXT://your-render-kafka-service.onrender.com:9092"
       - key: KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP
         value: "CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT"
       - key: KAFKA_CFG_CONTROLLER_LISTENER_NAMES
